@@ -19,12 +19,13 @@ class ServiceAgreementActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityServiceAgreementBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val intent = Intent(this, MainActivity::class.java)
-        binding.nextBtn.setOnClickListener{startActivity(intent)}
+        binding.nextBtn.setOnClickListener{
+            startActivity(intent)
+        }
 
     }
 }

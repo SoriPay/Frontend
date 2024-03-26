@@ -30,15 +30,19 @@ class PayPasswordActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("sp1", Context.MODE_PRIVATE)
         val soundState = sharedPreferences.getBoolean("soundState", false)
 
-        Log.d("ppa", soundState.toString())
-
         mtts = TextToSpeech(this) { //모든 글자를 소리로 읽어주는 tts
             mtts.language = Locale.KOREAN //언어:한국어
         }
 
-        //화면 정보 읽어주기
-        if (soundState) {
-            onSpeech("비밀번호 입력 화면입니다")
+        mtts = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                // 화면 정보 읽어주기
+                val textToSpeak =binding.noticeTv.text
+                onSpeech(textToSpeak)
+            } else {
+                // 초기화가 실패한 경우
+                Log.e("TTS", "TextToSpeech 초기화 실패")
+            }
         }
 
         passwordEditTexts = arrayOf(
@@ -93,13 +97,9 @@ class PayPasswordActivity : AppCompatActivity() {
 
         //다음 입력버튼 이벤트 처리- 다음 자리의 비밀번호 입력
         binding.enterBtn.setOnClickListener {
-            /*if (soundState) {
+            if (soundState) {
                 onSpeech(binding.enterBtn.text)
-            }*/ //TODO:밖에서 테스트하느라 일시중단시켜놓음
-            //TODO:근데 볼륨버튼으로 조절하려니까 다음입력 다음입력 소리 계속 주변에 다들리는데...
-            //TODO:어떡하지
-
-
+            }
             Toast.makeText(this, "비밀번호가 입력되었습니다.", Toast.LENGTH_SHORT).show()
             handleEnterButton()
         }
@@ -188,5 +188,10 @@ class PayPasswordActivity : AppCompatActivity() {
 
     private fun onSpeech(text: CharSequence) {
         mtts.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null, null)
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        mtts.shutdown()
+
     }
 }
