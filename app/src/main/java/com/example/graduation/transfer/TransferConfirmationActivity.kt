@@ -48,7 +48,12 @@ class TransferConfirmationActivity : AppCompatActivity() {
             mtts.language = Locale.KOREAN //언어:한국어
         }
 
-        
+        //TODO:0326 가입한 사람의 이름이 받는사람에게 표시:000에 떠야함
+        val spSender = getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
+        val name = spSender.getString("name", "")
+        binding.senderNameTv.text=name //해당 회원의 이름을 가져와서 텍스트뷰에 반영
+
+
         //지문 관련 변수
         biometricPrompt = setBiometricPrompt()
         promptInfo = setPromptInfo()

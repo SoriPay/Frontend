@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/fl_basic"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/img_completed"/>
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="비밀번호가 등록되었습니다.\n\n화면 하단의 버튼을 누르면\n메인화면으로 돌아갑니다."
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <android.widget.Button
+        android:id="@+id/next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_style"
+        android:padding="15dp"
+        android:text="메인 화면으로 돌아가기"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+</FrameLayout>

@@ -30,6 +30,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".myInfo.RegisterSixPwdActivity"
+            android:exported="false" />
+        <activity
             android:name=".managePay.DeletePayConfirmationActivity"
             android:exported="false" />
         <activity

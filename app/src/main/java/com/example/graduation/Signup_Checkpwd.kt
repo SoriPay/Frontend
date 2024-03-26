@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.example.graduation.LoginUser.Companion.email
 import com.example.graduation.databinding.ActivitySignupCheckpwdBinding
@@ -37,10 +38,10 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
 
         val retrofitService = RetrofitService()
         val userApi: UserApi = retrofitService.retrofit.create(UserApi::class.java)
-        //화면 정보 읽기
-        if (soundState) {
-            onSpeech("회원가입 이메일 입력 화면입니다.")
-        }
+
+        //백과 작업끝나서 해당 회원의 이름과 이메일은 인비지블 처리함
+        binding.nameTv.visibility= View.INVISIBLE
+        binding.emailTv.visibility= View.INVISIBLE
 
         //화면 정보 읽기
         if (soundState) {
