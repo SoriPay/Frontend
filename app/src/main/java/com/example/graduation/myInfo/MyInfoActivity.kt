@@ -41,6 +41,8 @@ class MyInfoActivity : AppCompatActivity(){
 
         }
 
+
+
         //비밀번호 변경 버튼 이벤트 처리
         binding.changePwdBtn.setOnClickListener{
             if (soundState) {
@@ -64,7 +66,7 @@ class MyInfoActivity : AppCompatActivity(){
             if (soundState) {
                 onSpeech(binding.deleteAccountBtn.text)
             }
-            //TODO:정말로 탈퇴하시겠습니까 및 계정 탈퇴 처리
+
             val fragment = DeleteAccountConfirmationFragment()
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fl_basic, fragment)

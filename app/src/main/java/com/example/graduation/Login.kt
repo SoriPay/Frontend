@@ -71,8 +71,8 @@ class Login : AppCompatActivity() {
                     if (soundState) {
                         onSpeech("지문 로그인 실패")
                     }
-                    val intent=Intent(this@Login,MainActivity::class.java)
-                    startActivity(intent)
+                   /* val intent=Intent(this@Login,MainActivity::class.java)
+                    startActivity(intent)*/
                 }
             })
 
