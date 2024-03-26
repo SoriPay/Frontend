@@ -61,9 +61,7 @@ class PayFingerActivity : AppCompatActivity() {
         mediaPlayerSuccess = MediaPlayer.create(this, R.raw.success_sound)
         mediaPlayerFailure = MediaPlayer.create(this, R.raw.failure_sound)
 
-        if (soundState) {
-            onSpeech("지문으로 결제하는 화면입니다. 화면 하단의 버튼을 누르면 지문 인증으로 넘어갑니다.")
-        }
+
 
         //이전 화면 버튼 클릭시
         binding.prevBtn.setOnClickListener {
