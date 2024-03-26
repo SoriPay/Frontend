@@ -42,6 +42,7 @@ android {
         viewBinding = true
         dataBinding=true
     }
+
 }
 
 dependencies {
@@ -74,10 +75,17 @@ dependencies {
     implementation ("com.google.android.gms:play-services-mlkit-text-recognition:19.0.0")
 
     //서버 통신을 위한 Retrofit 환경 세팅
-    implementation ("com.squareup.retrofit2:retrofit:2.6.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.6.0")
-    implementation ("com.google.code.gson:gson:2.8.6")
-    implementation ("com.squareup.okhttp3:logging-interceptor:3.11.0")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
+   // implementation ("com.google.code.gson:gson:2.8.6")
+   // implementation ("com.squareup.okhttp3:logging-interceptor:3.11.0")
+
+    implementation ("mysql:mysql-connector-java:5.1.46")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
 
 
 }

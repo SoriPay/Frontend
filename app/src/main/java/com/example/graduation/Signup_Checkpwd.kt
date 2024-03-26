@@ -7,8 +7,17 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.widget.Toast
+import com.example.graduation.LoginUser.Companion.email
 import com.example.graduation.databinding.ActivitySignupCheckpwdBinding
+import com.example.graduation.model.User
+import com.example.graduation.retrofit.RetrofitService
+import com.example.graduation.retrofit.UserApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.Locale
+import java.util.logging.Level
+import java.util.logging.Logger
 
 class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
 
@@ -26,6 +35,13 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
             mtts.language = Locale.KOREAN //언어:한국어
         }
 
+        val retrofitService = RetrofitService()
+        val userApi: UserApi = retrofitService.retrofit.create(UserApi::class.java)
+        //화면 정보 읽기
+        if (soundState) {
+            onSpeech("회원가입 이메일 입력 화면입니다.")
+        }
+
         //화면 정보 읽기
         if (soundState) {
             onSpeech("회원가입 이메일 입력 화면입니다.")
@@ -33,22 +49,45 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
 
         //TODO:0325 해당 회원의 이메일과 이름 가져오기
         val sharedPreferences2 = getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
-        val email = sharedPreferences2.getString("email", "")
+        val id = sharedPreferences2.getString("id", "")
         val name = sharedPreferences2.getString("name", "")
-        binding.emailTv.text=email //해당 회원의 이메일을 가져와서 이메일 텍스트뷰에 반영
+        binding.emailTv.text=id //해당 회원의 이메일을 가져와서 이메일 텍스트뷰에 반영
         binding.nameTv.text=name //해당 회원의 이름을 가져와서 이메일 텍스트뷰에 반영
 
 
         binding.enterButton.setOnClickListener {
+
+
+            val password = intent.getStringExtra("password").toString()
             val checkpwd = binding.signupInputCheckpwd.text.toString().trim()
-            val pwd = intent.getStringExtra("pwd").toString()
-            if (isPwdIdentified(checkpwd, pwd)) {
+
+            val user = User()
+            user.id = id
+            user.password = password
+            user.name = name
+
+            if (isPwdIdentified(checkpwd, password)) {
                 //비밀번호 일치하면 계정 생성 후 로그인 화면으로 이동
-                val email = intent.getStringExtra("email").toString()
-                val name = intent.getStringExtra("name").toString()
-              /*  makeUser(name, email, pwd)*/
+
+                userApi.save(user)
+                    .enqueue(object : Callback<User> {
+                        override fun onResponse(call: Call<User>, response: Response<User>) {
+                            Log.d("Signup_Checkpwd", "User saved successfully: ${response.body()}")
+                            Toast.makeText(this@Signup_Checkpwd, "ok!!!", Toast.LENGTH_SHORT).show()
+
+                        }
+
+
+                        override fun onFailure(call: Call<User>, t: Throwable) {
+                            Toast.makeText(this@Signup_Checkpwd, "fail!!!", Toast.LENGTH_SHORT).show()
+                            Logger.getLogger(Signup_Checkpwd::class.java.name).log(Level.SEVERE, "에러")
+                        }
+                    })
+
                 val intent = Intent(this, Login::class.java)
                 startActivity(intent)
+
+
             } else {
                 //비밀번호 불일치 시
                 run {
@@ -69,10 +108,10 @@ class Signup_Checkpwd : AppCompatActivity(), SignupDialogInterface {
     }
 
     //계정 생성
- /*   private fun makeUser(name: String, email: String, pwd: String): Boolean {
+    private fun makeUser(name: String, email: String, pwd: String): Boolean {
         return TODO("서버에 입력받은 email, pwd로 사용자 계정 생성")
     }
-*/
+
     override fun onDialogButtonClick() {
         finish()
     }

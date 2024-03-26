@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupAccountPwdActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/background">
+
+
+    <android.widget.Button
+        android:id="@+id/prev_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:text="@string/previous_text"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#DD1717"
+        android:text="비밀번호 설정"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/stroke"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/notice_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp"
+            android:padding="10dp"
+            android:background="@drawable/grey_notice"
+            android:text="음량 버튼을 조절하여 숫자를 입력해주세요"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/editPwd_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/password_et1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:textSize="20sp"
+                android:inputType="text"
+                android:layout_marginRight="5dp"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:background="@drawable/edittext_background"/>
+            <EditText
+                android:id="@+id/password_et2"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:textSize="20sp"
+                android:inputType="text"
+                android:layout_marginRight="5dp"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:background="@drawable/edittext_background"/>
+            <EditText
+                android:id="@+id/password_et3"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:textSize="20sp"
+                android:inputType="text"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:background="@drawable/edittext_background"/>
+            <EditText
+                android:id="@+id/password_et4"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginRight="5dp"
+                android:paddingLeft="10dp"
+                android:textSize="20sp"
+                android:inputType="text"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:background="@drawable/edittext_background"/>
+            <EditText
+                android:id="@+id/password_et5"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:textSize="20sp"
+                android:inputType="text"
+                android:layout_marginRight="5dp"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:background="@drawable/edittext_background"/>
+            <EditText
+                android:id="@+id/password_et6"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:textSize="20sp"
+                android:inputType="text"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:background="@drawable/edittext_background"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"/>
+
+        <LinearLayout
+            android:id="@+id/btn_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp">
+
+            <android.widget.Button
+                android:id="@+id/enter_btn"
+                android:layout_width="190dp"
+                android:layout_height="130dp"
+                android:background="@drawable/stroke"
+                android:text="다음 입력"
+                android:textSize="20sp" />
+
+            <android.widget.Button
+                android:id="@+id/delete_btn"
+                android:layout_width="190dp"
+                android:layout_height="130dp"
+                android:background="@drawable/stroke"
+                android:text="지우기"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <android.widget.Button
+        android:id="@+id/next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_style_light_grey"
+        android:text="@string/next_text"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:textColor="@color/white"/>
+</LinearLayout>

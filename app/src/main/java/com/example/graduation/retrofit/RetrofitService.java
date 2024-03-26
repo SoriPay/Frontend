@@ -11,7 +11,7 @@ public class RetrofitService {
     }
     private void initializeRetrofit() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("http:// 192.168.219.102:8080") //연결한 와이파이 보고 다시 입력해야함
+                .baseUrl("http://192.168.228.8:8080") //연결한 와이파이 보고 다시 입력해야함
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .build();
 

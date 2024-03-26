@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".transfer.TransferInfoActivity"
+    android:background="@color/background">
+
+    <android.widget.Button
+        android:id="@+id/prev_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rectangle_style"
+        android:backgroundTint="@null"
+        android:text="@string/previous_text"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+
+
+        <TextView
+            android:id="@+id/text_choose_bank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="송금 정보 입력"
+            android:textSize="@dimen/title"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/sub_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="left"
+            android:paddingLeft="20dp"
+            android:text="송금 받을 분의 정보를 입력해주세요."
+            android:textColor="@color/black"/>
+
+
+            <TextView
+                android:id="@+id/bank_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="은행명"
+                android:textSize="13dp"
+                android:textColor="@color/text_grey"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/bank_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="00은행"
+                android:textSize="13dp"
+                android:textColor="@color/text_grey"
+                >
+            </TextView>
+
+
+        <TextView
+            android:id="@+id/account_number_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="계좌번호"
+            android:textSize="13dp"
+            android:textColor="@color/text_grey"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/account_number_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
+            android:text="123-456-78910">
+
+        </TextView>
+
+
+            <TextView
+                android:id="@+id/name_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="이름"
+                android:textSize="13dp"
+                android:textColor="@color/text_grey">
+            </TextView>
+
+            <TextView
+                android:id="@+id/name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
+                android:text="박지영">
+
+            </TextView>
+
+
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <android.widget.Button
+        android:id="@+id/enter_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_style"
+        android:padding="15dp"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+</LinearLayout>

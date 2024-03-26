@@ -6,9 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.text.TextUtils.isEmpty
-import com.example.graduation.LoginUser.Companion.email
+import android.widget.Toast
 import com.example.graduation.databinding.ActivitySignupNameBinding
+import com.example.graduation.model.User
+import com.example.graduation.retrofit.RetrofitService
+import com.example.graduation.retrofit.UserApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.Locale
+import java.util.logging.Level
+import java.util.logging.Logger
 
 class Signup_Name : AppCompatActivity(), SignupDialogInterface {
     private lateinit var binding: ActivitySignupNameBinding
@@ -30,6 +38,9 @@ class Signup_Name : AppCompatActivity(), SignupDialogInterface {
             onSpeech("회원가입 이름 입력 화면입니다.")
         }
 
+        val retrofitService = RetrofitService()
+        val userApi: UserApi = retrofitService.retrofit.create(UserApi::class.java)
+
         binding.enterButton.setOnClickListener {
             val name = binding.signupInputName.text.toString().trim()
             if (isEmpty(name)) {
@@ -41,7 +52,6 @@ class Signup_Name : AppCompatActivity(), SignupDialogInterface {
                     onSpeech("이름을 입력해주세요.")
                 }
             } else {
-
                 //TODO:0325 이름을 checkpwd로 보내버리기
                 val sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
